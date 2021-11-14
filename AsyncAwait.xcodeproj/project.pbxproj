@@ -14,6 +14,7 @@
 		7F06DFAD274182430095B326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F06DFAC274182430095B326 /* Assets.xcassets */; };
 		7F06DFB0274182430095B326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F06DFAE274182430095B326 /* LaunchScreen.storyboard */; };
 		7F94E30E27418545006B2AF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94E30D27418545006B2AF5 /* User.swift */; };
+		7FE5462827418CCC0032448E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5462727418CCC0032448E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7F06DFAF274182430095B326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F06DFB1274182430095B326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F94E30D27418545006B2AF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7FE5462727418CCC0032448E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		7F94E311274185A3006B2AF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FE5462627418CB40032448E /* Manager */,
 				7FE5462527418C770032448E /* Entity */,
 			);
 			path = Model;
@@ -108,6 +111,14 @@
 				7F94E30D27418545006B2AF5 /* User.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		7FE5462627418CB40032448E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7FE5462727418CCC0032448E /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				7F94E30E27418545006B2AF5 /* User.swift in Sources */,
 				7F06DFA8274182410095B326 /* ViewController.swift in Sources */,
+				7FE5462827418CCC0032448E /* NetworkManager.swift in Sources */,
 				7F06DFA4274182410095B326 /* AppDelegate.swift in Sources */,
 				7F06DFA6274182410095B326 /* SceneDelegate.swift in Sources */,
 			);
