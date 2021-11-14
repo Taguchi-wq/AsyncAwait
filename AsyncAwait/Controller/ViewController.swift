@@ -35,18 +35,21 @@ final class ViewController: UIViewController {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         Task {
             let result = await NetworkManager.shared.fetch(url, type: [User].self)
-            switch result {
-            case .success(let users):
-                self.users = users
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
+            reloadUI(result)
         }
     }
 
+    private func reloadUI(_ result: Result<[User], Error>) {
+        switch result {
+        case .success(let users):
+            self.users = users
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        case .failure(let error):
+            print(error)
+        }
+    }
 
 }
 
