@@ -88,7 +88,7 @@
 		7F94E311274185A3006B2AF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F94E30D27418545006B2AF5 /* User.swift */,
+				7FE5462527418C770032448E /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +100,14 @@
 				7F06DFAE274182430095B326 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7FE5462527418C770032448E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				7F94E30D27418545006B2AF5 /* User.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
