@@ -11,6 +11,7 @@ final class ViewController: UIViewController {
     
     // MARK: - Properties
     private var users: [User] = []
+    private let indicator = UIActivityIndicatorView()
     
     
     // MARK: - @IBOutlets
@@ -22,6 +23,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView(tableView)
+        setupIndicator(indicator)
         fetchUsers()
     }
     
@@ -31,8 +33,16 @@ final class ViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    private func setupIndicator(_ indicator: UIActivityIndicatorView) {
+        indicator.center = view.center
+        indicator.style  = .large
+        indicator.color  = .gray
+        view.addSubview(indicator)
+    }
+    
     private func fetchUsers() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
+        indicator.startAnimating()
         Task {
             let result = await NetworkManager.shared.fetch(url, type: [User].self)
             reloadUI(result)
@@ -45,6 +55,7 @@ final class ViewController: UIViewController {
             self.users = users
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.indicator.stopAnimating()
             }
         case .failure(let error):
             print(error)
