@@ -22,12 +22,29 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView(tableView)
+        fetchUsers()
     }
     
     
     // MARK: - Methods
     private func setupTableView(_ tableView: UITableView) {
         tableView.dataSource = self
+    }
+    
+    private func fetchUsers() {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
+        Task {
+            let result = await NetworkManager.shared.fetch(url, type: [User].self)
+            switch result {
+            case .success(let users):
+                self.users = users
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 
